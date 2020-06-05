@@ -1,25 +1,25 @@
-#ifndef SR_LINO_PID_CORE_H
-#define SR_LINO_PID_CORE_H
+#ifndef SR_FOBOTS_PID_CORE_H
+#define SR_FOBOTS_PID_CORE_H
 
 #include "ros/ros.h"
 #include "ros/time.h"
 
 // Custom message includes. Auto-generated from msg/ directory.
-#include <lino_msgs/PID.h>
+#include <fobots_msgs/PID.h>
 
 // Dynamic reconfigure includes.
 #include <dynamic_reconfigure/server.h>
 // Auto-generated from cfg/ directory.
-#include <lino_pid/linoPIDConfig.h>
+#include <fobots_pid/fobotsPIDConfig.h>
 
-class LinoPID
+class FobotsPID
 {
 public:
-  LinoPID();
-  ~LinoPID();
-  void configCallback(lino_pid::linoPIDConfig &config, double level);
+  FobotsPID();
+  ~FobotsPID();
+  void configCallback(fobots_pid::fobotsPIDConfig &config, double level);
   void publishMessage(ros::Publisher *pub_message);
-  void messageCallback(const lino_msgs::PID::ConstPtr &msg);
+  void messageCallback(const fobots_msgs::PID::ConstPtr &msg);
 
   double p_;
   double d_;
